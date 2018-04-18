@@ -1,0 +1,29 @@
+
+.form-container{
+    border: 1px solid;
+    padding: 30px 40px;
+}
+
+.jumbotron{
+	background: url("sky.jpg") ;
+	
+    text-align: center;
+	vertical-align: middle;
+	line-height: 90px;
+}
+
+body{
+	/*background: url("dragonsflying.jpeg") ; */
+	background: url("dragoniteTurning.gif");
+	 /* Full height */
+    height: 100%; 
+    
+    color: white;
+    
+    font-weight: bold;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

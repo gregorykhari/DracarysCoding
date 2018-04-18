@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dragonair Breeding</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="dragonairBreeders.css">
+    </head>
+    <body>
+                <div class="container">
+            <div class = "jumbotron ">
+                <div class = "row">
+                    <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+                    <div class = "col-md-4 col-sm-4 col-xs-12">
+                        <div class = "row">
+                            <h1>Dragonair Breeding</h1>
+                        </div>
+                    </div>
+                    <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+               </div>
+            </div>
+        </div>
+        <div class="container">
+        <div id = "dragonInfo">
+            <table id = "dragonTable" class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">Dragon ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Colour</th>
+                  <th scope="col">Parent's Name</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Species</th>
+                  <th scope="col">Region</th>
+                  <th scope="col">Food Preference</th>
+                  <th scope="col">Caretaker ID</th>
+                </tr>
+            </thead>
+        </table>
+        </div>
+        <a class="btn btn-primary" href="admin" role="button">Back</a>
+      </div>
+    </body>
+    <script type="text/javascript">
+
+        window.onload = function(){
+
+            var data = <%= results %>; 
+            
+
+            var table = document.getElementById("dragonTable");
+
+            var columnCount = data[0].length;
+            
+            for (var i = 0; i < data.length; i++) {
+                document.getElementById("dragonInfo").innerHTML = "here";
+                row = table.insertRow(-1);
+                for (var j = 0; j < columnCount-1; j++) {
+                    document.getElementById("dragonInfo").innerHTML = "fnowelnf ";
+                    var cell = row.insertCell(-1);
+                    cell.innerHTML = data[i][j];
+                   ;
+                }
+            }
+
+            var dragonTable = document.getElementById("dragonInfo");
+            dragonTable.innerHTML = "";
+            dragonTable.appendChild(table);
+        }
+    </script>
+    <style>
+      body {
+        color: white;
+}
+</style>
+</html>

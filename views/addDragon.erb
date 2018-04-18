@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dragonair Breeding</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="dragonairBreeders.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class = "jumbotron ">
+                <div class = "row">
+                    <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+                    <div class = "col-md-4 col-sm-4 col-xs-12">
+                        <div class = "row">
+                            <h1>Dragonair Breeding</h1>
+                        </div>
+                    </div>
+                    <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+               </div>
+            </div>
+        </div>
+        <div class = "row">
+               <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+               <div class = "col-md-4 col-sm-4 col-xs-12">
+                    <form id = "theForm" class = "form-container" action = "/addDragon" enctype="multipart/form-data" method='POST'>
+                        <div class = "form-group">
+                            <label for="dragonID">Dragon ID</label>
+                            <input required type="text" class="form-control" name = "dragonID" id="dragonID" placeholder= "Enter dragonID">
+                        </div>
+                        <div class = "form-group">
+                            <label for="dragonName">Dragon Name</label>
+                            <input required type="text" class="form-control" id="dragonName" name = "dragonName" placeholder= "Enter Dragon Name">
+                        </div>
+                        <div class = "form-group">
+                            <label for="age">Age</label>
+                            <input required type="text" class="form-control" id="age" name = "age" placeholder= "Enter Age">
+                        </div>
+                        <label for="gender">Gender</label>
+                        <div class = "form-check" id="gender">
+                            <label class="custom-control custom-radio">
+                                <input id="male" name="gender" type="radio" value="male" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Male</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                              <input id="female" name="gender" type="radio" value="female" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">Female</span>
+                            </label>
+                        </div>
+                        <label for="colour">Colour</label>
+                        <div class = "form-group">
+                            <select required class="custom-select" id = "colour" name="colour">
+                                <option selected>Choose colour</option>
+                                <option value="red">Red</option>
+                                <option value="orange">Orange</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="green">Green</option>
+                                <option value="blue">Blue</option>
+                                <option value="purple">Purple</option>
+                                <option value="brown">Brown</option>
+                                <option value="black">Black</option>
+                            </select>
+                        </div>
+                        <div class = "form-group">
+                            <label for="ParentsName">Parent's Name</label>
+                            <input required type="text" class="form-control" id="parentName" name = "parentName" placeholder= "Enter Parent's Name">
+                        </div>
+						<div class = "form-group">
+                            <label for="Type">Type</label>
+                            <input required type="text" class="form-control" id="type" name = "type" placeholder= "Enter Type">
+                        </div>
+						<div class = "form-group">
+                            <label for="Species">Species</label>
+                            <input required type="text" class="form-control" id="species" name = "species" placeholder= "Enter Species">
+                        </div>
+                        <div class = "form-group">
+                            <label for="region">Region</label>
+                            <input required type="text" class="form-control" id="region" name="region" placeholder= "Enter Region of Origin">
+                        </div>
+                        <div class = "form-group">
+                            <label for="foodPreference">Food Preference</label>
+                            <input required type="text" class="form-control" id="foodPreference" name = "foodPreference" placeholder= "Enter Food Preference">
+                        </div>
+						<div class = "form-group">
+                            <label for="caretakerID">Caretaker ID</label>
+                            <input required type="text" class="form-control" id="caretakerID" name="caretakerID" placeholder= "Enter CaretakerID">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Dragon</button>
+                        <a class="btn btn-primary" href="admin" role="button">Cancel</a>
+                   </form>
+                </div>
+            <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+        </div>
+    </body>
+    <script>
+        window.onload = function () {
+  var form = document.getElementById('theForm');
+  form.button.onclick = function (){
+    for(var i=0; i < form.elements.length; i++){
+      if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
+        alert('There are some required fields!');
+        return false;
+      }
+    }
+    form.submit();
+  }; 
+};
+    </script>
+    <style>
+body {
+        color: white;
+}
+</style>
+</html>

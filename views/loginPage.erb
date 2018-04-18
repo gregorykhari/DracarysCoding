@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dragonair Breeding</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="dragonairBreeders.css">
+    </head>
+    <body>
+                <div class="container">
+            <div class = "jumbotron ">
+                <div class = "row">
+                    <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+                    <div class = "col-md-4 col-sm-4 col-xs-12">
+                        <div class = "row">
+                            <h1>Dragonair Breeding</h1>
+                        </div>
+                    </div>
+                    <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+               </div>
+            </div>
+        </div>
+            <div id='flash' class='notice'>
+                <%= flash[:notice] %>
+            </div>
+            <div class = "row">
+               <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+               <div class = "col-md-4 col-sm-4 col-xs-12">
+                    <form class = "form-container" action = "/login" enctype="multipart/form-data" method='POST'>
+                        <div class = "form-group">
+                            <label for="employeeID">EmployeeID</label>
+                            <input name="employeeID" type="text" class="form-control" id="employeeID" placeholder= "Enter employeeID">
+                        </div>
+                        <div class = "form-group">
+                            <label for="loginPassword">Password</label>
+                            <input name="loginPassword" type="password" class="form-control" id="loginPassword" placeholder= "Enter password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+            <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+        </div>
+    </body>
+    <style>
+    body {
+        color: white;
+    }
+    </style>	
+</html>

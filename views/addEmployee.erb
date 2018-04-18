@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dragonair Breeding</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="dragonairBreeders.css">
+    </head>
+    <body>
+                <div class="container">
+            <div class = "jumbotron ">
+                <div class = "row">
+                    <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+                    <div class = "col-md-4 col-sm-4 col-xs-12">
+                        <div class = "row">
+                            <h1>Dragonair Breeding</h1>
+                        </div>
+                    </div>
+                    <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+               </div>
+            </div>
+        </div>
+        <div class = "row">
+               <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+               <div class = "col-md-4 col-sm-4 col-xs-12">
+                    <form id = "theForm" class = "form-container" action = "/addEmployee" enctype="multipart/form-data" method='POST'>
+                        <div class = "form-group">
+                            <label for="employeeID">Employee ID</label>
+                            <input required type="text" class="form-control" id="employeeID" name= "employeeID" placeholder= "Enter employeeID">
+                        </div>
+                        <div class = "form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder= "Enter First Name">
+                        </div>
+                        <div class = "form-group">
+                            <label for="lastName">Last Name</label>
+                            <input required type="text" class="form-control" id="lastName" name="lastName" placeholder= "Enter Last Name">
+                        </div>
+                        <label for="gender">Gender</label>
+                        <div class = "form-check" id="gender">
+                            <label class="custom-control custom-radio">
+                                <input id="male" name="gender" type="radio" value="male" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Male</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                              <input id="female" name="gender" type="radio" value="female" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">Female</span>
+                            </label>
+                        </div>
+						<div class="form-group">
+							<label class="control-label" for="date">Date Of Birth</label>
+							<input required class="form-control" id="dateOfBirth" name="dateOfBirth" placeholder="MM/DD/YYY" type="text"/>
+						</div>
+						<label for="role">Role</label>
+                        <div class = "form-group">
+                            <select class="custom-select" id = "role" name="role">
+                                <option selected>Choose Role</option>
+                                <option value="manager">Manager</option>
+                                <option value="caretaker">Caretaker</option>
+                                <option value="veterinarian">Veterinarian</option>
+								<option value="receptionist">Receptionist</option>
+								<option value="janitor">Janitor</option>
+                            </select>
+                        </div>
+                        <div class = "form-group">
+                            <label for="weeklyHours">Weekly Hours</label>
+                            <input required type="text" class="form-control" id="weeklyHours" name="weeklyHours" placeholder= "Enter Weekly Hours">
+                        </div>
+                        <div class = "form-group">
+                            <label for="salary">Salary</label>
+                            <input required type="text" class="form-control" id="salary" name="salary" placeholder= "Enter Salary">
+                        </div>
+                        <div class = "form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input required type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder= "Enter Phone Number">
+                        </div>
+                        <div class = "form-group">
+                            <label for="emailAddress">Email Address</label>
+                            <input required type="text" class="form-control" id="emailAddress" name="emailAddress" placeholder= "Enter Email Address">
+                        </div>
+                        <div class = "form-group">
+                            <label for="password">Password</label>
+                            <input required type="password" class="form-control" id="password" name="password" placeholder= "Enter Password" onkeyup='check();']>
+                        </div>
+                        <div class = "form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input required type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder= "Re-Enter Password" onkeyup='check();'>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Employee</button>
+                        <a class="btn btn-primary" href="admin" role="button">Cancel</a>
+                   </form>
+                </div>
+            <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+        </div>
+    </body>
+    <script>
+    	window.onload = function () {
+  var form = document.getElementById('theForm');
+  form.button.onclick = function (){
+    for(var i=0; i < form.elements.length; i++){
+      if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
+        alert('There are some required fields!');
+        return false;
+      }
+    }
+    form.submit();
+  }; 
+};
+		$(document).ready(function () {
+   $("#password, #confirmPassword").keyup(checkPasswordMatch);
+});
+    </script>
+    <style>
+body {
+        color: white;
+}
+</style>
+</html>

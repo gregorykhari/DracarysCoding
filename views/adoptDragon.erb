@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dragonair Breeding</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="dragonairBreeders.css">
+    </head>
+    <body>
+       1
+        <div data-alert class="flash notice alert-box radius">
+            <%= flash[:notice] %>
+        </div>
+        <div class = "row">
+               <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+               <div class = "col-md-4 col-sm-4 col-xs-12">
+                    <form class = "form-container" action = "/adoptDragon" enctype="multipart/form-data" method='POST'>
+                        <div class = "form-group">
+                            <label for="adopterID">Adopter ID</label>
+                            <input type="text" class="form-control" id="adopterID" name= "adopterID" placeholder= "Enter Adopter ID">
+                        </div>
+                            <div class = "form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="adopterFirstName" name="adopterFirstName" placeholder= "Enter Adopter First Name">
+                            </div>
+                            <div class = "form-group">
+                                <label for="adopterLastName">Last Name</label>
+                                <input type="text" class="form-control" id="adopterLastName" name="adopterLastName" placeholder= "Enter Adopter Last Name">
+                            </div>
+
+                        <div class = "form-group">
+                            <label for="adopterAge">Age</label>
+                            <input type="text" class="form-control" id="adopterAge" name="adopterAge" placeholder= "Enter Adopter Age">
+                        </div>
+                            <label for="adopterGender">Gender</label>
+                                <div class = "form-check" id="adopterGender">
+                                <label class="custom-control custom-radio">
+                                <input id="male" name="adopterGender" type="radio" value="male" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Male</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                                <input id="female" name="adopterGender" type="radio" value="female" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Female</span>
+                            </label>
+                        </div>
+                        <div class = "form-group">
+                            <label for="adopterPhoneNumber">Phone Number</label>
+                            <input type="text" class="form-control" id="adopterPhoneNumber" name="adopterPhoneNumber" placeholder= "Enter Adopter Phonenumber">
+                        </div>
+                        <div class = "form-group">
+                            <label for="adopterAddress">Address</label>
+                            <input type="text" class="form-control" id="adopterAddress" name="adopterAddress" placeholder= "Enter Adopter Address">
+                        </div>
+                        <div class = "row">
+                            <div class = "form-group">
+                                <label for="adopterAddress">City</label>
+                                <input type="text" class="form-control" id="adopterCity" name="adopterCity" placeholder= "Enter City of Address">
+                            </div>
+                            <div class = "form-group">
+                                <label for="adopterAddress">State</label>
+                                <input type="text" class="form-control" id="adopterState" name="adopterState" placeholder= "Enter State of Address">
+                            </div>
+                        </div>
+						<label for="adopterHomeType">Home Type</label>
+                        <div class = "form-group">
+                            <select class="custom-select" id = "adopterHomeType" name="adopterHomeType">
+                                <option selected>Choose Home Type</option>
+                                <option value="house">House</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="ranch">Ranch</option>
+                            </select>
+                        </div>
+                        <div class = "form-group">
+                            <label for="reasonForAdopting">Reason For Adopting</label>
+                            <input type="text" class="form-control" id="reasonForAdopting" name="reasonForAdopting" placeholder= "Enter Reason For Adopting">
+                        </div>
+                        <div class="row">
+                            <div class = "form-group">
+                                <label for="dragonID">Dragon ID</label>
+                                <input type="text" class="form-control" id="dragonID" name="dragonID" placeholder= "Enter ID of Dragon">
+                            </div>
+                            <div class = "form-group">
+                                <label for="dragonName">Dragon Name</label>
+                                <input type="text" class="form-control" id="dragonName" name="dragonName" placeholder= "Enter Name of Dragon">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="date">Date Of Adoption</label>
+                            <input class="form-control" id="dateOfAdoption" name="dateOfAdoption" placeholder="MM/DD/YYY" type="text"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Adopt Dragon!</button>
+                        <a class="btn btn-primary" href="admin" role="button">Cancel</a>
+                   </form>
+                </div>
+            <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+        </div>
+    </body>
+    <script>
+    	window.onload = function () {
+  var form = document.getElementById('theForm');
+  form.button.onclick = function (){
+    for(var i=0; i < form.elements.length; i++){
+      if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
+        alert('There are some required fields!');
+        return false;
+      }
+    }
+    form.submit();
+  }; 
+};
+    </script>
+<style>
+body {
+        color: white;
+}
+</style>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dragonair Breeding</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="dragonairBreeders.css">
+    </head>
+    <body>
+                <div class="container">
+            <div class = "jumbotron ">
+                <div class = "row">
+                    <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+                    <div class = "col-md-4 col-sm-4 col-xs-12">
+                        <div class = "row">
+                            <h1>Dragonair Breeding</h1>
+                        </div>
+                    </div>
+                    <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+               </div>
+            </div>
+        </div>
+        <div class="container">
+          <form class = "form-container" action = "/dragonReports" enctype="multipart/form-data" method='POST'>
+          <div class = "row .d-inline">
+            <div class="col-sm-6 col-md-4"></div>
+            <div class="col-sm-6 col-md-4">
+              <div class = "form-group">
+                <select class="custom-select" id = "searchField" name="searchField">
+                  <option selected>Search By</option>
+                  <option value="dragonID">Dragon ID</option>
+                  <option value="dragonName">Dragon Name</option>
+                  <option value="age">Age</option>
+                  <option value="gender">Gender</option>
+                  <option value="colour">Colour</option>
+                  <option value="parentName">Parent's Name</option>
+                  <option value="type">Type</option>
+                  <option value="species">Species</option>
+                  <option value="region">Region</option>
+                  <option value="foodPreference">Food Preference</option>
+                  <option value="caretakerID">CaretakerID</option>
+                </select>
+              </div>
+              <div class = "form-group">
+                <select class="custom-select" id = "comparisonOp" name="comparisonOp">
+                  <option selected>Choose Comparison</option>
+                  <option value="=">EQUALS</option>
+                  <option value=">">GREATER THAN</option>
+                  <option value="<">LESS THAN</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="searchValue" name="searchValue" placeholder="Search Value">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit">Search!</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+        <br><br>
+        <div id = "dragonInfo">
+            <table id = "dragonTable" class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">Dragon ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Colour</th>
+                  <th scope="col">Parent's Name</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Species</th>
+                  <th scope="col">Region</th>
+                  <th scope="col">Food Preference</th>
+                  <th scope="col">Caretaker ID</th>
+                </tr>
+            </thead>
+        </table>
+        </div>
+        <div class = "row">
+          <form action='/exportDragonReport' enctype="multipart/form-data" method='POST'>
+            <input type="submit" value="EXPORT" class="btn btn-primary" />
+          </form>
+          <div class="col-sm-6 col-md-4">
+          <a class="btn btn-primary" href="admin" role="button">Back</a>
+        </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+
+        window.onload = function(){
+              
+            var data = <%= results %>; 
+            
+            var table = document.getElementById("dragonTable");
+
+            var columnCount = data[0].length;
+            
+            for (var i = 0; i < data.length; i++) {
+    
+                row = table.insertRow(-1);
+                for (var j = 0; j < columnCount-1; j++) {
+                    var cell = row.insertCell(-1);
+                    cell.innerHTML = data[i][j];
+                   ;
+                }
+            }
+
+            var dragonTable = document.getElementById("dragonInfo");
+            dragonTable.innerHTML = "";
+            dragonTable.appendChild(table);
+        }
+    </script>
+</html>
