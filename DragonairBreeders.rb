@@ -1,4 +1,3 @@
-#require 'bcrypt'
 require 'sqlite3'
 require 'csv'
 require 'sinatra'
@@ -22,10 +21,8 @@ configure do
 	enable :sessions
 	set :root, File.dirname(__FILE__)
 	set :view, Proc.new { File.join(root,"views") }
-	#set :public_folder, Proc.new { File.join(root, "views") }
 	set :adminUsername, 'admin'
 	set :adminPassword, 'admin'
-	#set :adminPassword, BCrypt::Password.new("$2a$10$0XkrR7Dhbimh6yh4O2036.anz6a/TSAS49afYU0jOa2qiQnNj/JLO")
 end
 
 #set database name
@@ -132,10 +129,6 @@ end
 #function to verify employee login
 def verifyLogin(employeeID,password)
 
-	#hash password to match to database 
-	#password = BCrypt::Password.create(password)
-	#puts(password)
-
 	verifyQuery = "SELECT loginPassword FROM employees WHERE employeeID='#{employeeID}' AND loginPassword='#{password}'"
 	result = DB.execute(verifyQuery)
 
@@ -177,9 +170,10 @@ end
 #exports CSV file to report.csv
 def exportEmployeesReportCSV(field, comparison, value)
 
+
 	File.delete("EmployeesReport.csv") if File.exists? "EmployeesReport.csv"
   
-	record = {:employeeID=>"employeeID",:firstName=>"First Name",:lastName=>"Last Name",:gender=>"Gender",:dateOfBirth=>"Date Of Birth",:role=>"Role",:weeklyHours=>"Weekly Hours",:salary=>"Salary",:phoneNumber=>"Phone Number",:emailAddress=>"Email Address",:loginPassword=>"Login Password"}
+	record = {:employeeID=>"employeeID",:firstName=>"First Name",:lastName=>"Last Name",:gender=>"Gender",:dateOfBirth=>"Date Of Birth",:role=>"Role",:phoneNumber=>"Phone Number",:emailAddress=>"Email Address"}
 	CSV.open("EmployeesReport.csv", "w") do |csv|
     	csv << record.values
         csv.close()
@@ -192,7 +186,7 @@ def exportEmployeesReportCSV(field, comparison, value)
       	row = row.to_s
       	row = row.gsub("[","").gsub("\"","").gsub(",","").gsub("\\n","").gsub("]","")
 
-      	employeeID, firstName, lastName, gender, dateOfBirth, role, weeklyHours, salary, phoneNumber, emailAddress, loginPassword  = row.split(" ")
+      	employeeID, firstName, lastName, gender, dateOfBirth, role, phoneNumber, emailAddress  = row.split(" ")
       	record = {:employeeID=>"#{employeeID}",:firstName=>"#{firstName}",:lastName=>"#{lastName}",:gender=>"#{gender}",:dateOfBirth=>"#{dateOfBirth}",:role=>"#{role}",:weeklyHours=>"#{weeklyHours}",:salary=>"#{salary}",:phoneNumber=>"#{phoneNumber}",:emailAddress=>"#{emailAddress}",:loginPassword=>"#{loginPassword}"}
       
       	CSV.open("EmployeesReport.csv", "a+") do |csv|
@@ -292,8 +286,6 @@ post '/addEmployee' do
 	emailAddress = params[:emailAddress].to_s
 	loginPassword = params[:password].to_s
 
-
-		
 	success = addNewEmployee(employeeID,firstName,lastName,gender,dateOfBirth,role,weeklyHours,salary,phoneNumber,emailAddress,loginPassword)
 
 	redirect to('/admin')
@@ -401,7 +393,7 @@ end
 
 post '/exportEmployeeReport' do
 
-	exportEmployeeReportCSV("employeeID",">",0)
+	exportEmployeesReportCSV("employeeID",">",0)
 
 	redirect to('/employeeReports')
 end
